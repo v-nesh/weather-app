@@ -5,7 +5,7 @@ import Card from '@/app/pages/dashboard/components/Card';
 import { WeatetherApiResponse } from '@/app/utils/types/types';
 import Skeleton from '@/app/pages/dashboard/components/Skeleton';
 import { Form, Formik, FormikProps, ErrorMessage } from 'formik';
-import * as Yup from 'Yup';
+import { object, string } from 'yup';
 
 const endPoint = `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHERAPI_KEY}&q=`;
 
@@ -13,8 +13,8 @@ type InitialValues = {
   location: string;
 };
 
-const validationSchema = Yup.object().shape({
-  location: Yup.string().required('Required').min(3, 'Too Short!').max(50, 'Too Long!'),
+const validationSchema = object().shape({
+  location: string().required('Required').min(3, 'Too Short!').max(50, 'Too Long!'),
 });
 
 const Dashboard = () => {
