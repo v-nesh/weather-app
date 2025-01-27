@@ -7,7 +7,7 @@ import Skeleton from '@/app/pages/dashboard/components/Skeleton';
 import { Form, Formik, FormikProps, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 
-const endPoint = `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHERAPI_KEY}&q=`;
+const endPoint = `https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHERAPI_KEY}&q=`;
 
 type InitialValues = {
   location: string;
